@@ -38,6 +38,12 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -46,17 +52,16 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                    <a href="/" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
                             style="color:var(--primary-color)">Hub</span></a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="projects/index.html">Projects</a></li>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="projects/">Projects</a></li>
                     <li><a href="pyscript-demo.html">Interactive PyScript</a></li>
                     <li><a href="docs/embedded.html">ESP32 Guide</a></li>
-                    <li><a href="docs/deployment.html">Deployment</a></li>
                 </ul>
-                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
             </nav>
         </div>
     </header>
@@ -92,7 +97,8 @@
                     <!-- Feature 1 -->
                     <div class="card"
                         style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
-                        <h3>🐍 PyScript Integration</h3>
+                        <h3><i class="fa-brands fa-python" style="color: var(--primary-color);"></i> PyScript
+                            Integration</h3>
                         <p>Run Python code directly in your browser without a server. Use libraries like Pandas, NumPy,
                             and manipulate the DOM with Python.</p>
                     </div>
@@ -100,7 +106,8 @@
                     <!-- Feature 2 -->
                     <div class="card"
                         style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
-                        <h3>⚡ ESP32 & MicroPython</h3>
+                        <h3><i class="fa-solid fa-bolt" style="color: var(--primary-color);"></i> ESP32 & MicroPython
+                        </h3>
                         <p>Complete step-by-step documentation for setting up your ESP32 board, flashing MicroPython,
                             and writing your first embedded scripts.</p>
                     </div>
@@ -108,7 +115,7 @@
                     <!-- Feature 3 -->
                     <div class="card"
                         style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
-                        <h3>🎨 Modern UI/UX</h3>
+                        <h3><i class="fa-solid fa-palette" style="color: var(--primary-color);"></i> Modern UI/UX</h3>
                         <p>Built with responsiveness in mind. Features a dark/light mode toggle, GSAP scroll animations,
                             and a polished design system.</p>
                     </div>
@@ -116,7 +123,8 @@
                     <!-- Feature 4 -->
                     <div class="card"
                         style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
-                        <h3>🚀 GitHub Pages Ready</h3>
+                        <h3><i class="fa-solid fa-rocket" style="color: var(--primary-color);"></i> GitHub Pages Ready
+                        </h3>
                         <p>Static site structure optimized for easy deployment. Just push to GitHub and enable Pages to
                             go live in minutes.</p>
                     </div>
@@ -124,7 +132,8 @@
                     <!-- Feature 5 -->
                     <div class="card"
                         style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
-                        <h3>🚗 Anti-Sleeping Car (New!)</h3>
+                        <h3><i class="fa-solid fa-car" style="color: var(--primary-color);"></i> Anti-Sleeping Car
+                            (New!)</h3>
                         <p>Check out the latest IoT project: A complete car safety monitoring system using ESP32.</p>
                         <a href="projects/anti-sleeping-car.html" class="btn"
                             style="margin-top: 1rem; display: inline-block; font-size: 0.9rem;">View Project</a>

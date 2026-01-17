@@ -10,6 +10,11 @@
     <script src="../js/main.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+            <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -18,16 +23,15 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="../index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                    <a href="../" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
                             style="color:var(--primary-color)">Hub</span></a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../">Home</a></li>
                     <li><a href="../pyscript-demo.html">Interactive PyScript</a></li>
                     <li><a href="embedded.html">ESP32 Guide</a></li>
-                    <li><a href="deployment.html">Deployment</a></li>
                 </ul>
-                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
             </nav>
         </div>
     </header>
@@ -49,7 +53,7 @@
 │   ├── embedded.html
 │   ├── deployment.html
 │   └── setup.html
-├── index.html          # Landing page
+├──           # Landing page
 ├── pyscript-demo.html  # Interactive Python examples
 └── README.md           # Project summary (optional)
 </code></pre>
@@ -58,10 +62,11 @@
         <section class="fade-in">
             <h2>Adding a New Page</h2>
             <ol style="margin-left: 1.5rem;">
-                <li>Create a new <code>.html</code> file (copy <code>index.html</code> or <code>docs/setup.html</code>
+                <li>Create a new <code>.html</code> file (copy <code></code> or <code>docs/setup.html</code>
                     as a template).</li>
                 <li>Ensure the <code>&lt;link rel="stylesheet" href="..."&gt;</code> points correctly to
-                    <code>css/style.css</code>.</li>
+                    <code>css/style.css</code>.
+                </li>
                 <li>Ensure the <code>&lt;script src="..."&gt;</code> points correctly to <code>js/main.js</code>.</li>
                 <li>Add your content inside the <code>&lt;main&gt;</code> tag.</li>
                 <li>Add the <code>fade-in</code> class to sections you want to animate on scroll.</li>

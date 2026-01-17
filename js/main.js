@@ -40,8 +40,8 @@ function initTheme() {
 function updateToggleIcon(theme) {
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
-    // Simple text/emoji switch. Can be replaced with SVG icons later.
-    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    // Use Font Awesome icons
+    themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
 }
 
