@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive PyScript Demo</title>
+    <meta name="author" content="Sunil Mishra">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Interactive PyScript Demo",
+      "author": {
+        "@type": "Person",
+        "name": "Sunil Mishra"
+      },
+      "description": "Interactive Python examples running in the browser using PyScript."
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent-color);
+            margin: 2rem auto;
+            border-radius: 10px;
+        }
+
+        .console-output {
+            background-color: #1e1e1e;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: monospace;
+            min-height: 100px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                            style="color:var(--primary-color)">Hub</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects/index.html">Projects</a></li>
+                    <li><a href="pyscript-demo.html" class="active">Interactive PyScript</a></li>
+                    <li><a href="docs/embedded.html">ESP32 Guide</a></li>
+                    <li><a href="docs/deployment.html">Deployment</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="fade-in">
+            <h1>PyScript Interactive Playground</h1>
+            <p>Run Python code directly in the browser. Interact with the DOM and even existing JavaScript libraries.
+            </p>
+        </section>
+
+        <!-- Example 1: Simple Input/Output -->
+        <section class="fade-in">
+            <h2>1. Text Processing</h2>
+            <div class="card" style="padding: 2rem; margin-bottom: 2rem; border: 1px solid var(--border-color);">
+                <label for="user-input">Enter text to reverse:</label>
+                <input type="text" id="user-input" placeholder="Type here..."
+                    style="padding: 0.5rem; margin-right: 0.5rem; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color);">
+                <button id="reverse-btn" class="btn" py-click="reverse_text">Reverse with Python</button>
+
+                <div id="output-area" class="console-output">Output will appear here...</div>
+
+                <script type="py">
+                    from pyscript import document
+
+                    def reverse_text(event):
+                        input_el = document.querySelector("#user-input")
+                        output_el = document.querySelector("#output-area")
+                        
+                        original_text = input_el.value
+                        reversed_text = original_text[::-1]
+                        
+                        output_el.innerText = f"Original: {original_text}\nReversed: {reversed_text}"
+                </script>
+            </div>
+        </section>
+
+        <!-- Example 2: Python calling GSAP -->
+        <section class="fade-in">
+            <h2>2. Python Controlling GSAP Animations</h2>
+            <p>Click the buttons below to trigger GSAP animations using Python code.</p>
+
+            <div class="card" style="padding: 2rem; text-align: center; border: 1px solid var(--border-color);">
+                <div class="demo-box" id="gsap-box"></div>
+
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button class="btn" py-click="animate_spin">Spin</button>
+                    <button class="btn" py-click="animate_bounce">Bounce</button>
+                    <button class="btn" py-click="reset_box"
+                        style="background-color: var(--secondary-color);">Reset</button>
+                </div>
+
+                <script type="py">
+                    from pyscript import window
+
+                    # Access the GSAP global object from window
+                    gsap = window.gsap
+
+                    def animate_spin(event):
+                        gsap.to("#gsap-box", rotation=360, duration=1, ease="power1.inOut")
+
+                    def animate_bounce(event):
+                        gsap.to("#gsap-box", y=-50, duration=0.5, yoyo=True, repeat=1, ease="power1.out")
+
+                    def reset_box(event):
+                        gsap.to("#gsap-box", x=0, y=0, rotation=0, scale=1, duration=0.5)
+                </script>
+
+                <div style="margin-top: 2rem; text-align: left;">
+                    <h3>Code behind this:</h3>
+                    <pre><code>from pyscript import window
+
+gsap = window.gsap
+
+def animate_spin(event):
+    gsap.to("#gsap-box", rotation=360, duration=1)</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Example -->
+        <section class="fade-in">
+            <h2>3. Python REPL (Read-Eval-Print Loop)</h2>
+            <p>A terminal in your browser! Try typing <code>import math</code> then <code>math.pi</code>.</p>
+            <!-- PyScript Terminal allows users to type code interactively -->
+            <script type="py" terminal></script>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PyScript Hub. Open Source Project.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

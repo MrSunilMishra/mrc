@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy to GitHub Pages</title>
+    <meta name="author" content="Sunil Mishra">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Deploying PyScript Sites to GitHub Pages",
+      "author": {
+        "@type": "Person",
+        "name": "Sunil Mishra"
+      },
+      "description": "Guide to deploying a static PyScript website to GitHub Pages."
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                            style="color:var(--primary-color)">Hub</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../projects/index.html">Projects</a></li>
+                    <li><a href="../pyscript-demo.html">Interactive PyScript</a></li>
+                    <li><a href="embedded.html">ESP32 Guide</a></li>
+                    <li><a href="deployment.html" class="active">Deployment</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="fade-in">
+            <h1>Hosting Your Site on GitHub Pages</h1>
+            <p>GitHub Pages is a free hosting service for static sites directly from your GitHub repository.</p>
+        </section>
+
+        <section class="fade-in">
+            <h2>1. Create a Repository</h2>
+            <ol style="margin-left: 1.5rem; margin-bottom: 2rem;">
+                <li>Log in to <a href="https://github.com" target="_blank">GitHub</a>.</li>
+                <li>Click <strong>New</strong> to create a repository.</li>
+                <li>Name it (e.g., <code>my-pyscript-site</code>) and ensure it is <strong>Public</strong> (for free
+                    Pages).</li>
+            </ol>
+        </section>
+
+        <section class="fade-in">
+            <h2>2. Push Your Code</h2>
+            <p>Open your terminal in the project folder and run:</p>
+            <pre><code># Initialize git
+git init
+
+# Add all files
+git add .
+
+# Commit
+git commit -m "Initial commit"
+
+# Link to your repo (replace URL)
+git remote add origin https://github.com/Start-Code/my-pyscript-site.git
+
+# Push
+git push -u origin main
+</code></pre>
+        </section>
+
+        <section class="fade-in">
+            <h2>3. Configure Pages</h2>
+            <ol style="margin-left: 1.5rem;">
+                <li>Go to your repository <strong>Settings</strong> tab.</li>
+                <li>Click on <strong>Pages</strong> in the left sidebar.</li>
+                <li>Under <strong>Branch</strong>, select <code>main</code> and the folder <code>/ (root)</code>.</li>
+                <li>Click <strong>Save</strong>.</li>
+            </ol>
+            <p style="margin-top: 1rem;">
+                Wait a minute or two, refresh the page, and you will see your live URL (e.g.,
+                <code>https://username.github.io/my-pyscript-site/</code>).
+            </p>
+        </section>
+
+        <section class="fade-in">
+            <h2>4. PyScript Considerations</h2>
+            <div class="card"
+                style="background: var(--card-bg); padding: 1rem; border: 1px solid var(--accent-color); border-radius: 0.5rem; color: var(--text-color);">
+                <strong>Note:</strong> PyScript fetches the Python runtime (WASM) from the web.
+                The first load might be slightly slower. Ensure your users have an internet connection.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PyScript Hub.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

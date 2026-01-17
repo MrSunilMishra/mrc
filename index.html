@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyScript & ESP32 Embedded Guide</title>
+    <meta name="description"
+        content="A complete guide to PyScript, GitHub Pages, and ESP32 MicroPython setup. Interactive Python examples and embedded systems tutorials.">
+    <meta name="keywords"
+        content="PyScript tutorials, GitHub Pages Python, ESP32 MicroPython setup, code copy button, GSAP animations">
+    <meta name="author" content="Sunil Mishra">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PyScript Hub - MRC Project",
+      "author": {
+        "@type": "Person",
+        "name": "Sunil Mishra"
+      },
+      "description": "A complete guide to PyScript, GitHub Pages, and ESP32 MicroPython setup."
+    }
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+
+    <!-- Scripts -->
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                            style="color:var(--primary-color)">Hub</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="projects/index.html">Projects</a></li>
+                    <li><a href="pyscript-demo.html">Interactive PyScript</a></li>
+                    <li><a href="docs/embedded.html">ESP32 Guide</a></li>
+                    <li><a href="docs/deployment.html">Deployment</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero"
+            style="text-align: center; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+            <div class="container fade-in">
+                <h1>Run Python in the Browser &<br>Master Embedded Systems</h1>
+                <p
+                    style="font-size: 1.25rem; color: var(--secondary-color); margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Explore the power of <strong>PyScript</strong> for web interactivity and dive into
+                    <strong>MicroPython on ESP32</strong>.
+                    A modern, static-site template ready for GitHub Pages.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="pyscript-demo.html" class="btn">Try PyScript Demo</a>
+                    <a href="docs/embedded.html" class="btn"
+                        style="background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color);">Start
+                        ESP32 Guide</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features">
+            <div class="container">
+                <h2 class="fade-in" style="text-align: center;">Project Features</h2>
+                <div class="grid stagger-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+
+                    <!-- Feature 1 -->
+                    <div class="card"
+                        style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <h3>🐍 PyScript Integration</h3>
+                        <p>Run Python code directly in your browser without a server. Use libraries like Pandas, NumPy,
+                            and manipulate the DOM with Python.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="card"
+                        style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <h3>⚡ ESP32 & MicroPython</h3>
+                        <p>Complete step-by-step documentation for setting up your ESP32 board, flashing MicroPython,
+                            and writing your first embedded scripts.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="card"
+                        style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <h3>🎨 Modern UI/UX</h3>
+                        <p>Built with responsiveness in mind. Features a dark/light mode toggle, GSAP scroll animations,
+                            and a polished design system.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="card"
+                        style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <h3>🚀 GitHub Pages Ready</h3>
+                        <p>Static site structure optimized for easy deployment. Just push to GitHub and enable Pages to
+                            go live in minutes.</p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="card"
+                        style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <h3>🚗 Anti-Sleeping Car (New!)</h3>
+                        <p>Check out the latest IoT project: A complete car safety monitoring system using ESP32.</p>
+                        <a href="projects/anti-sleeping-car.html" class="btn"
+                            style="margin-top: 1rem; display: inline-block; font-size: 0.9rem;">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Python Snippet Preview -->
+        <section class="code-preview" style="background-color: var(--code-bg); padding: 4rem 0;">
+            <div class="container fade-in">
+                <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2>Python Meets HTML</h2>
+                        <p>
+                            With PyScript, you can interleave Python logic with HTML.
+                            The example on the right shows how simple it is to print "Hello World" or perform
+                            calculations directly in the browser.
+                        </p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <pre><code>&lt;script type="py"&gt;
+    import datetime
+    now = datetime.datetime.now()
+    print(f"Current time: {now}")
+&lt;/script&gt;</code></pre>
+
+                        <!-- Actual PyScript Execution -->
+                        <div
+                            style="margin-top: 1rem; padding: 1rem; border: 1px solid var(--primary-color); border-radius: 0.5rem; background: var(--bg-color);">
+                            <strong>Live Output:</strong>
+                            <div id="live-output">
+                                <script type="py">
+                                    import datetime
+                                    from pyscript import display
+                                    now = datetime.datetime.now().strftime("%H:%M:%S")
+                                    display(f"Page loaded at: {now}", target="live-output")
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PyScript Hub. Open Source Project.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

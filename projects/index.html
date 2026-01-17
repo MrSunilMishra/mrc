@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - PyScript Hub</title>
+    <meta name="author" content="Sunil Mishra">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Projects by Sunil Mishra",
+      "author": {
+        "@type": "Person",
+        "name": "Sunil Mishra"
+      },
+      "description": "A collection of engineering code and IoT projects."
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                            style="color:var(--primary-color)">Hub</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../projects/index.html" class="active">Projects</a></li>
+                    <li><a href="../pyscript-demo.html">Interactive PyScript</a></li>
+                    <li><a href="../docs/embedded.html">ESP32 Guide</a></li>
+                    <li><a href="../docs/deployment.html">Deployment</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="fade-in">
+            <h1>My Projects</h1>
+            <p>A collection of my work in embedded systems, Python, and web development.</p>
+        </section>
+
+        <section class="features">
+            <div class="grid stagger-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+
+                <!-- Project 1: Anti-Sleeping Car -->
+                <div class="card"
+                    style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                    <h3>🚗 Anti-Sleeping Car System</h3>
+                    <p>A safety system designed to prevent driver fatigue accidents using ESP32 and sensors. Monitors
+                        driver alertness and triggers an alarm if drowsiness is detected.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <span
+                            style="font-size: 0.8rem; background: var(--bg-color); padding: 0.2rem 0.6rem; border-radius: 1rem; border: 1px solid var(--border-color);">ESP32</span>
+                        <span
+                            style="font-size: 0.8rem; background: var(--bg-color); padding: 0.2rem 0.6rem; border-radius: 1rem; border: 1px solid var(--border-color);">MicroPython</span>
+                    </div>
+                    <a href="anti-sleeping-car.html" class="btn" style="margin-top: 1.5rem; display: inline-block;">View
+                        Project</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PyScript Hub.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

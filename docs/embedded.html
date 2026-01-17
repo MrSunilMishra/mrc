@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 & MicroPython Setup Guide</title>
+    <meta name="author" content="Sunil Mishra">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Getting Started with ESP32 & MicroPython",
+      "author": {
+        "@type": "Person",
+        "name": "Sunil Mishra"
+      },
+      "description": "A step-by-step guide to setting up ESP32 with MicroPython and Thonny IDE."
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../index.html" style="font-weight: 800; font-size: 1.5rem;">PyScript<span
+                            style="color:var(--primary-color)">Hub</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../projects/index.html">Projects</a></li>
+                    <li><a href="../pyscript-demo.html">Interactive PyScript</a></li>
+                    <li><a href="embedded.html" class="active">ESP32 Guide</a></li>
+                    <li><a href="deployment.html">Deployment</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="fade-in">
+            <h1>Getting Started with ESP32 & MicroPython</h1>
+            <p>A complete step-by-step guide to setting up your environment and running Python on hardware.</p>
+        </section>
+
+        <!-- Step 1: Software -->
+        <section class="fade-in">
+            <h2>1. Install Thonny IDE</h2>
+            <p>Thonny is the most beginner-friendly Python IDE with built-in support for MicroPython.</p>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Download Thonny from <a href="https://thonny.org" target="_blank">thonny.org</a>.</li>
+                <li>Install it on your computer (Windows, Mac, or Linux).</li>
+                <li>Open Thonny.</li>
+            </ol>
+            <p><em>Why Thonny?</em> It handles drivers and serial connections automatically for most boards.</p>
+        </section>
+
+        <!-- Step 2: Firmware -->
+        <section class="fade-in">
+            <h2>2. Flash MicroPython Firmware</h2>
+            <p>Your ESP32 needs the MicroPython firmware to understand Python code.</p>
+
+            <div class="card"
+                style="background: var(--card-bg); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 0.5rem;">
+                <h3>Steps to Flash:</h3>
+                <ol style="margin-left: 1.5rem;">
+                    <li>Connect your ESP32 to your PC via USB data cable.</li>
+                    <li>In Thonny, go to <strong>Tools > Options > Interpreter</strong>.</li>
+                    <li>Select <strong>MicroPython (ESP32)</strong> from the dropdown.</li>
+                    <li>Click <strong>Install or Update MicroPython</strong> (bottom right).</li>
+                    <li>Select the target port and firmware variant (usually default is fine).</li>
+                    <li>Click <strong>Install</strong> and wait for it to finish.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Step 3: Blink LED -->
+        <section class="fade-in">
+            <h2>3. Your First Code: Blink LED</h2>
+            <p>The "Hello World" of electronics. Most ESP32 boards have a built-in LED on GPIO 2.</p>
+
+            <pre><code>from machine import Pin
+import time
+
+# Setup built-in LED (GPIO 2)
+led = Pin(2, Pin.OUT)
+
+while True:
+    led.value(1)    # Turn ON
+    time.sleep(0.5) # Wait 0.5 seconds
+    led.value(0)    # Turn OFF
+    time.sleep(0.5)
+</code></pre>
+
+            <p><strong>To Run:</strong> Paste this into Thonny and click the green "Run" button.</p>
+        </section>
+
+        <!-- Step 4: Modules -->
+        <section class="fade-in">
+            <h2>4. Connecting to Wi-Fi</h2>
+            <p>ESP32 is powerful because of its Wi-Fi capabilities. Here is a helper function to connect.</p>
+
+            <pre><code>import network
+import time
+
+def connect_wifi(ssid, password):
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    if not wlan.isconnected():
+        print('Connecting to network...')
+        wlan.connect(ssid, password)
+        while not wlan.isconnected():
+            pass
+    print('Network config:', wlan.ifconfig())
+
+# Usage
+connect_wifi("MyWiFiName", "MyPassword")
+</code></pre>
+        </section>
+
+        <!-- Step 5: Sensors -->
+        <section class="fade-in">
+            <h2>5. Using Sensors (DHT11/22)</h2>
+            <p>Reading temperature and humidity is easy with the built-in <code>dht</code> module.</p>
+            <pre><code>import dht
+from machine import Pin
+import time
+
+sensor = dht.DHT22(Pin(14)) # Connect sensor data pin to GPIO 14
+
+while True:
+    try:
+        sensor.measure()
+        temp = sensor.temperature()
+        hum = sensor.humidity()
+        print(f"Temperature: {temp}°C, Humidity: {hum}%")
+    except OSError as e:
+        print("Failed to read sensor.")
+    
+    time.sleep(2)
+</code></pre>
+        </section>
+
+        <section class="fade-in">
+            <h2>Troubleshooting</h2>
+            <ul style="margin-left: 1.5rem;">
+                <li><strong>Port not found?</strong> Install the CP210x or CH340 drivers depending on your board.</li>
+                <li><strong>Brownout reset?</strong> Try a different USB cable or USB port (power issue).</li>
+                <li><strong>Thonny busy?</strong> Press the 'Stop' (red sign) button to interrupt the running script.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PyScript Hub.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
